@@ -1,0 +1,546 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Dotrixs|ERP AutoFinance</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/animate.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/prettyPhoto.css" rel="stylesheet" type="text/css" />
+    <link href="css/main.css" rel="stylesheet" type="text/css" />
+    <link href="css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+          rel="stylesheet" type="text/css" />
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="images/favicon2.ico" />
+    <script type="text/javascript">
+        function checkEmail(str) {
+            var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            if (!re.test(str)) {
+                document.getElementById("email").value = "";
+                alert("Please enter a valid email address");
+            }
+        }
+
+
+    </script>
+    <script type="text/javascript">
+
+        function isNumber(evt) {
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                alert("Please enter only Numbers.");
+                return false;
+            }
+
+            return true;
+        }
+
+        function ValidateNo() {
+            var phoneNo = document.getElementById('txtPhoneNo');
+
+            if (phoneNo.value == "" || phoneNo.value == null) {
+                alert("Please enter your Mobile No.");
+                return false;
+            }
+            if (phoneNo.value.length < 10 || phoneNo.value.length > 10) {
+                alert("Mobile No. is not valid, Please Enter 10 Digit Mobile No.");
+                return false;
+            }
+
+            alert("Success ");
+            return true;
+        }
+    </script>
+
+
+
+
+
+
+    <style>
+        .col-wrapper {
+            width: 960px;
+            margin: 0 auto;
+        }
+
+        .col {
+            margin: 0 10px;
+            float: left;
+            display: inline;
+        }
+
+        .col-670 {
+            width: 670px;
+        }
+
+        .col-250 {
+            width: 250px;
+        }
+        <!-- hr {
+            border: 1px solid #070BED;
+        }
+        -->
+        .vertical_line {
+            height: 750px;
+            width: 1px;
+            margin-top: 100px;
+            background: #656568;
+        }
+        <!-- style enquery -->
+        * {
+            box-sizing: border-box;
+        }
+
+
+        h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            color: #fff;
+        }
+
+
+
+        /* form starting stylings ------------------------------- */
+        .group {
+            position: relative;
+            margin-bottom: 35px;
+        }
+
+
+        input:focus {
+            outline: none;
+        }
+
+        /* LABEL ======================================= */
+        label {
+            color: #fff;
+            font-size: 18px;
+            font-weight: normal;
+            position: absolute;
+            pointer-events: none;
+            left: 5px;
+            top: 10px;
+            transition: 0.2s ease all;
+            -moz-transition: 0.2s ease all;
+            -webkit-transition: 0.2s ease all;
+        }
+
+        /* active state */
+        input:focus ~ label, input:valid ~ label {
+            top: -20px;
+            font-size: 14px;
+            color: #fff;
+        }
+
+        /* BOTTOM BARS ================================= */
+        .bar {
+            position: relative;
+            display: block;
+            width: 100%;
+        }
+
+            .bar:before, .bar:after {
+                content: '';
+                height: 2px;
+                width: 0;
+                bottom: 1px;
+                position: absolute;
+                background: #fff;
+                transition: 0.2s ease all;
+                -moz-transition: 0.2s ease all;
+                -webkit-transition: 0.2s ease all;
+            }
+
+            .bar:before {
+                left: 50%;
+            }
+
+            .bar:after {
+                right: 50%;
+            }
+
+
+
+        /* active state */
+        input:focus ~ .bar:before, input:focus ~ .bar:after {
+            width: 50%;
+        }
+
+        /* HIGHLIGHTER ================================== */
+        .highlight {
+            position: absolute;
+            height: 60%;
+            width: 100px;
+            top: 25%;
+            left: 0;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        /* active state */
+        input:focus ~ .highlight {
+            -webkit-animation: inputHighlighter 0.3s ease;
+            -moz-animation: inputHighlighter 0.3s ease;
+            animation: inputHighlighter 0.3s ease;
+        }
+
+        /* ANIMATIONS ================ */
+        @-webkit-keyframes inputHighlighter {
+            from {
+                background: #fff;
+            }
+
+            to {
+                width: 0;
+                background: transparent;
+            }
+        }
+
+        @-moz-keyframes inputHighlighter {
+            from {
+                background: #fff;
+            }
+
+            to {
+                width: 0;
+                background: transparent;
+            }
+        }
+
+        @keyframes inputHighlighter {
+            from {
+                background: #fff;
+            }
+
+            to {
+                width: 0;
+                background: transparent;
+            }
+        }
+
+
+        #panel {
+            border: 1px solid rgb(200, 200, 200);
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 2px;
+            background: -webkit-linear-gradient(90deg, #2caab3 0%, #2c8cb3 100%);
+            background: red; /* For browsers that do not support gradients */
+            background: -webkit-linear-gradient(90deg, #2caab3 0%, #2c8cb3 100%); /* For Safari 5.1 to 6.0 */
+            background: -o-linear-gradient(90deg, #2caab3 0%, #2c8cb3 100%); /* For Opera 11.1 to 12.0 */
+            background: -moz-linear-gradient(90deg, #2caab3 0%, #2c8cb3 100%); /* For Firefox 3.6 to 15 */
+            background: linear-gradient(90deg, #2caab3 0%, #2c8cb3 100%); /* Standard syntax (must be last) */
+            border-radius: 4px;
+            top: 50px;
+        }
+
+        <!-- end style enquery -->
+    </style>
+
+</head>
+<body>
+    <header id="header">
+        <div class="top-bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <div class="top-number"><p><i class="fa fa-thumbs-up"></i><a href="index.htm"><span class="dot">Dot</span><span class="rix">rixs</span></a></p></div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <div class="social">
+                            <ul class="social-share">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="#"><i class="fa fa-skype"></i></a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-inverse" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- <a class="navbar-brand" href="Default.aspx"><img src="images/logo.png" alt="logo" /></a> -->
+                </div>
+
+                <div class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.htm">HOME</a></li>
+                        <!-- <li><a href="portfolio.htm">Company</a></li> -->
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">OUR PRODUCT <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="erpauditing.htm">ERP Auditing</a></li>
+                                <li class="active"><a href="erpautofinance.htm">ERP Auto Finance</a></li>
+                                <li><a href="erpmill.htm">ERP Mill</a></li>
+                                <li><a href="erplogistics.htm">ERP Logistics</a></li>
+                                <li><a href="scm.htm">SCM</a></li>
+                                <li><a href="crm.htm">CRM</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">OUR SERVICES <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="billing.htm">Billing Softwares</a></li>
+                                <li><a href="webdevelopment.htm">Website Development</a></li>
+                                <li><a href="mobileapp.htm">Mobile App Development</a></li>
+                                <li><a href="ecommerce.htm">E-Commerce Solution</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">INDUSTRIES <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="manufacture.htm">Manufacturers</a></li>
+                                <li><a href="construction.htm">Construction</a></li>
+                                <li><a href="hospital.htm">Hospitals,Clinics&Spa</a></li>
+                                <li><a href="ecommerce.htm">E-Commerce</a></li>
+                                <li><a href="erplogistics.htm">Warehouse & Logistics</a></li>
+                                <li><a href="erpauditing.htm">Auditing</a></li>
+                                <li><a href="erpautofinance.htm">Finance</a></li>
+                                <li><a href="school.htm">Schools & Colleges</a></li>
+
+                            </ul>
+                        </li>
+                        <li><a href="portfolio.htm">PORTFOLIO</a></li>
+                        <li><a href="contactus.htm">CONTACT</a></li>
+                    </ul>
+                </div>
+            </div><!--/.container-->
+        </nav><!--/nav-->
+
+    </header>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-8">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-12">
+                        <br>
+                            <div class="form-group">
+                                <hr style="border: 1px solid #0066FF" />
+                                <b>ERP -Auto Finance</b><br />
+                                <hr style="border: 1px solid #0066FF" />
+                                <p>
+                                    AutoFinance ERP is a comprehensive solution that provides excellent support to the Financiers dealing in different  industries.<br />
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <b>Services Comes Under Auto Finance ERP</b></p>
+                                <ul>
+                                    <li>Two Wheeler Finance</li>
+                                    <li>Four Wheeler Finance</li>
+                                    <li>Document based Finance</li>
+                                     
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <b>Modules</b>
+                                <ul>
+                                    <li>Ledger Entry Screen</li>
+                                    <li>Finanace Allocation</li>
+                                    <li>Due Creation</li>
+                                    <li>Receipt Generation</li>
+                                    <li>Montly Collection</li>
+                                    <li>Pending collection</li>
+                                    <li>Due Closing Screen</li>
+                                    <li>DayBook Entry</li>
+                                    <li>Accounts</li>
+                                    <li>Masters</li>
+                                    <li>Reports</li>
+                                    <li>Phone Directorys</li>
+                                    <li>Reminders</li>
+                                    <li>PayRoll</li>
+                                    <li>Bulk Email Alerts</li>
+                                    <li>SMS Gateway Integration</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+            </div>
+
+            <div class="col-md-4">
+                 <br>
+                <form id="form">
+                    <hr style="border: 1px solid #0066FF" />
+                    <b>For Demos Contact</b><br />
+                    <hr style="border: 1px solid #0066FF" />
+
+
+
+
+                    <div class="form-group">
+                        <label>Name: <span>*</span></label>
+                        <input type="text" id="name" placeholder="Name" class="form-control" required=required />
+                    </div>
+                    <div class="form-group">
+                        <label>Email: <span>*</span></label>
+                        <input type="text" id="email" placeholder="Email" class="form-control" onblur="checkEmail(this.value)" required=required />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Contact No: <span>*</span></label>
+                        <input type="text" id="txtPhoneNo" onkeypress="return isNumber(event)" class="form-control " required=required placeholder="10 digit Mobile no." />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Message:</label>
+                        <textarea id="message" rows="5" class="form-control " maxlength="500" required=required placeholder="Message......."></textarea>
+                    </div>
+
+                    <div class="=form-group">
+                        <input type="button" id="submit" value="Send Message" class="btn btn-success" required=required onclick="ValidateNo();" />
+                    </div>
+
+
+                </form>
+            </div>
+
+
+        </div>
+
+
+        </form>
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+    <section id="bottom">
+        <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="widget">
+                        <h3>Products</h3>
+                        <ul>
+                            <li><a href="erpauditing.htm">Auditing</a></li>
+
+                            <li><a href="erpautofinance.htm">Autofinance</a></li>
+                            <li><a href="erplogistics.htm">Logistics</a></li>
+                            <li><a href="erpmill.htm">Mill</a></li>
+
+                        </ul>
+                    </div>
+                </div><!--/.col-md-3-->
+
+
+                <div class="col-md-3 col-sm-6" align="left">
+                    <div class="widget">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="webdevelopment.htm">Website Development</a></li>
+                            <li><a href="billing.htm">Billing Softwares</a></li>
+                            <li><a href="ecommerce.htm">Ecommerce Solution</a></li>
+                            <li><a href="mobileapp.htm">Mobile Apps Development</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer id="footer" class="midnight-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    Copyright &copy; 2017 <a target="_blank" href="http://codesensesoftsolutions.com/" title="Free Twitter Bootstrap asp.net templates">Dotrixs Softwares Pvt Ltd</a>. All Rights Reserved.
+                </div>
+                <div class="col-sm-6">
+                    <ul class="pull-right">
+                        <li><a href="index.htm">HOME</a></li>
+                        <!-- <li><a href="index.htm">About Us</a></li> -->
+                        <!-- <li><a href="#">Faq</a></li>-->
+                        <li><a href="contact_form.htm">CONTACT</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="back-to-top"><i class="fa fa-2x fa-angle-up"></i></a>
+    </footer>
+    <!--/#footer-->
+    <!-- Back To Top -->
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            var offset = 300;
+            var duration = 500;
+            jQuery(window).scroll(function () {
+                if (jQuery(this).scrollTop() > offset) {
+                    jQuery('.back-to-top').fadeIn(duration);
+                } else {
+                    jQuery('.back-to-top').fadeOut(duration);
+                }
+            });
+
+            jQuery('.back-to-top').click(function (event) {
+                event.preventDefault();
+                jQuery('html, body').animate({ scrollTop: 0 }, duration);
+                return false;
+            })
+        });
+    </script>
+    <!-- /top-link-block -->
+    <!-- Jscript -->
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="js/jquery.prettyPhoto.js" type="text/javascript"></script>
+    <script src="js/jquery.isotope.min.js" type="text/javascript"></script>
+    <script src="js/main.js" type="text/javascript"></script>
+    <script src="js/wow.min.js" type="text/javascript"></script>
+
+
+
+</body>
+</html>
